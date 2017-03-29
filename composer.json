@@ -1,5 +1,5 @@
 {
-    "name": "civilservices/api",
+    "name": "civilservices/api-client-laravel",
     "homepage": "https://github.com/CivilServiceUSA/api-client-laravel",
     "description": "A Laravel 5 PHP Client for our Civil Services API Edit",
     "keywords": ["laravel", "api", "civil services"],

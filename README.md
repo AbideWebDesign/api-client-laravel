@@ -17,7 +17,7 @@ Our Service Provider can be installed via [Composer](http://getcomposer.org) by 
 ```json
 {
     "require": {
-        "civilservices/api": "~1.0"
+        "civilservices/api-client-laravel": "~1.0"
     }
 }
 ```
