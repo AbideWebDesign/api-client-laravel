@@ -1,33 +1,40 @@
 <?php
+
 namespace CivilServices\Api;
 
-use GuzzleHttp\Client;
+use GuzzleHttp\Client as GuzzleHttpClient;
 use Illuminate\Support\Facades\Cache;
-use ReflectionClass;
-use Session;
 
-/**
- * An abstract Civil Services API endpoint, which assumes a URL pattern that matches
- * the concrete class name and handles requests.
- */
-abstract class ApiEndpoint {
-
-    // The Guzzle client that handles requests.
-    private $client;
-
-    // The URL of the endpoint, defaults to the classname, lower-cased.
-    protected $endpoint;
-
+class Client
+{
     /**
-     * Construct a new API endpoint using the given HTTP client.
-     * @param $client
+     * @var GuzzleHttp API Client
      */
-    public function __construct($client) {
-        $this->client = $client;
+    protected $client;
 
-        if (!$this->endpoint) {
-            $this->endpoint = strtolower((new ReflectionClass($this))->getShortName());
-        }
+   
+    /**
+     * Create new instance of Pixelpeter\Genderize\GenderizeClient
+     */
+    public function __construct(Request $request)
+    {
+        $config = $this->app['config']->get('civilservices');
+
+        // all endpoints use the same HTTP client.
+        $this->client = new GuzzleHttpClient([
+            'base_url' => [
+                $config['api_base'] . '/{version}/',
+                [
+                    'version' => $config['api_version']
+                ]
+            ],
+            'defaults' => [
+                'headers' => [
+                    'API-Key' => $config['api_key']
+                ]
+            ]
+
+        ]);
     }
 
     /**
@@ -58,12 +65,16 @@ abstract class ApiEndpoint {
             }
         }
     }
-
+    
     /**
-     * Returns the root URL of the endpoint.
+     * Send the request
+     *
+     * @return GenderizeResponse
      */
-    protected function getUrl() {
-        return '/' . $this->endpoint;
-    }
+    public function getCategories($query)
+    {
+        $response = $this->makeRequest('GET', 'categories', ['query' => $query]);
 
+        return $response;
+    }
 }

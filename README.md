@@ -12,7 +12,15 @@ API Client for Laravel 5
 Installation
 ---
 
-Our Service Provider can be installed via [Composer](http://getcomposer.org) by requiring the `civilservices/api` package in your project's `composer.json`.
+### Step 1: Install Through Composer
+
+Our Service Provider can be installed via [Composer](http://getcomposer.org) by either installing through composer:
+
+```bash
+composer require civilservices/api-client-laravel
+```
+
+or requiring the `civilservices/api-client-laravel` package in your project's `composer.json`.
 
 ```json
 {
@@ -28,15 +36,27 @@ Then run a composer update:
 composer update
 ```
 
-### Laravel App
+### Step 2: Add the Service Provider
 
-In Laravel find the `providers` key in your `config/app.php` and register our Provider.
+Add the service provider in `app/config/app.php`
 
 ```php
 'providers' => array(
     // ...
     CivilServices\Api\ApiServiceProvider::class,
 )
+```
+
+### Step 3: Add the Facade
+
+Add the alias in `app/config/app.php`
+
+```php
+'aliases' => [
+    ...
+    'CivilServices' => CivilServices\Api\Facades\ApiClient::class,
+    ...
+];
 ```
 
 
@@ -54,7 +74,7 @@ CIVIL_SERVICES_CACHE_EXPIRE
 To customize the configuration file, publish the package configuration using Artisan.
 
 ```sh
-php artisan vendor:publish
+php artisan vendor:publish --provider="CivilServices\Api\ApiServiceProvider"
 ```
 
 Update your settings in the generated `app/config/civilservices.php` configuration file.
@@ -69,3 +89,14 @@ return [
 ```
 
 If you need an API Key, you can request one here:  https://api.civil.services
+
+
+Usage
+---
+
+```php
+use CivilServices;
+
+$response = CivilServices::getCategories();
+
+```
