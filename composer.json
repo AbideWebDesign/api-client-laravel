@@ -21,5 +21,6 @@
     "autoload": {
         "psr-4": { "CivilServices\\Api\\": "src" }
     },
+    "minimum-stability ": "dev",
     "prefer-stable": true
 }
