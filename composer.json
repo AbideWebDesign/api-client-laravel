@@ -15,23 +15,11 @@
     "require": {
         "php": ">=5.5.9",
         "guzzlehttp/guzzle": "^6.2",
+        "laravel/framework": "5.4.*",
         "illuminate/support": "~5"
     },
-    "require-dev": {
-        "phpunit/phpunit": "~5.7"
-    },
-    "suggest": {
-        "phpunit/phpunit": "Allow to use PHPUnit for testing (~5.7)."
-    },
     "autoload": {
-        "psr-4": { "CivilServices\\Api\\": "src/" }
+        "psr-4": { "CivilServices\\Api\\": "src" }
     },
-    "autoload-dev": {
-        "psr-4": { "CivilServices\\Api\\Tests\\": "tests/" }
-    },
-    "config": {
-        "preferred-install": "dist"
-    },
-    "minimum-stability": "dev",
     "prefer-stable": true
 }

@@ -25,7 +25,7 @@ Our Service Provider can be installed via [Composer](http://getcomposer.org) by 
 Then run a composer update:
 
 ```bash
-php composer.phar update
+composer update
 ```
 
 ### Laravel App
@@ -35,16 +35,7 @@ In Laravel find the `providers` key in your `config/app.php` and register our Pr
 ```php
 'providers' => array(
     // ...
-    CivilServices\Api\CivilServicesServiceProvider::class,
-)
-```
-
-Find the `aliases` key in your `config/app.php` and add our facade alias.
-
-```php
-'aliases' => array(
-    // ...
-    'CivilServices' => CivilServices\Api\CivilServicesFacade::class,
+    CivilServices\Api\ApiServiceProvider::class,
 )
 ```
 
@@ -55,6 +46,7 @@ Configuration
 By default, the package uses the following environment variables to auto-configure the plugin without modification:
 ```
 CIVIL_SERVICES_API_BASE
+CIVIL_SERVICES_API_VERSION
 CIVIL_SERVICES_API_KEY
 CIVIL_SERVICES_CACHE_EXPIRE
 ```
@@ -70,7 +62,10 @@ Update your settings in the generated `app/config/civilservices.php` configurati
 ```php
 return [
     'api_base' => env('CIVIL_SERVICES_API_BASE', 'https://api.civil.services'),
-    'api_key' => env('CIVIL_SERVICES_API_KEY', '77BA31A9-13AD-2394-792B-3DEA4AC96009'),
+    'api_key' => env('CIVIL_SERVICES_API_KEY', 'YOUR_API_KEY'),
+    'api_version' => env('CIVIL_SERVICES_API_VERSION', 'v1'),
     'cache_expire' => env('CIVIL_SERVICES_CACHE_EXPIRE', 3600),
 ];
 ```
+
+If you need an API Key, you can request one here:  https://api.civil.services
