@@ -1,9 +1,6 @@
 <?php
 namespace CivilServices\Api;
 
-use GuzzleHttp\Client as GuzzleHttpClient;
-use GuzzleHttp\Exception\RequestException;
-use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -13,51 +10,31 @@ use Illuminate\Support\ServiceProvider;
 class ApiServiceProvider extends ServiceProvider {
 
     /**
-     * Publish configuration.
+     * Bootstrap the application services.
+     *
+     * @return void
      */
-    public function boot() {
-        $source = realpath(__DIR__ . '/../config/civilservices.php');
+    public function boot()
+    {
+        $this->mergeConfigFrom(__DIR__ . '/../config/civilservices.php', 'civilservices');
 
-        if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
-            $this->publishes([$source => config_path('civilservices.php')]);
-        }
-
-        $this->mergeConfigFrom($source, 'civilservices');
-    }
-
-    /**
-     * Register all of the endpoints in the service container.
-     */
-    public function register() {
-        $config = $this->app['config']->get('civilservices');
-
-        // all endpoints use the same HTTP client.
-        $api_client = new GuzzleHttpClient([
-            'base_url' => [
-                $config['api_base'] . '/{version}/',
-                [
-                    'version' => $config['api_version']
-                ]
-            ],
-            'defaults' => [
-                'headers' => [
-                    'API-Key' => $config['api_key']
-                ]
-            ]
-
+        $this->publishes([
+            __DIR__ . '/../config/civilservices.php' => config_path('civilservices.php'),
         ]);
-
-        foreach (self::$endpoints as $endpoint) {
-            $this->app->singleton($endpoint, function() use($api_client, $endpoint) {
-                return new $endpoint($api_client);
-            });
-        }
     }
-
     /**
-     * A list of all the endpoint classes.
+     * Register the application services.
+     *
+     * @return void
      */
-    private static $endpoints = [
-        Endpoints\Categories::class,
-    ];
+    public function register()
+    {
+        $app = $this->app;
+
+        $app->bind('CivilServices\Api\Client', function () {
+            return new Client();
+        });
+
+        $app->alias('CivilServices\Api\Client', 'civilservices');
+    }
 }
