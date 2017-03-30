@@ -1,0 +1,63 @@
+{
+  "notices": [],
+  "warnings": [],
+  "errors": [],
+  "field_errors": {},
+  "meta": {
+    "total": 1,
+    "showing": 1,
+    "pages": 1,
+    "page": 1
+  },
+  "data": {
+    "admission_date": "1788-07-26T00:00:00.000Z",
+    "admission_number": 11,
+    "capital_city": "Albany",
+    "capital_url": "http://www.albanyny.org",
+    "constitution_url": "https://www.dos.ny.gov/info/constitution.htm",
+    "facebook_url": null,
+    "landscape": {
+      "size_640x360": "https://cdn.civil.services/us-states/backgrounds/640x360/landscape/new-york.jpg",
+      "size_960x540": "https://cdn.civil.services/us-states/backgrounds/960x540/landscape/new-york.jpg",
+      "size_1280x720": "https://cdn.civil.services/us-states/backgrounds/1280x720/landscape/new-york.jpg",
+      "size_1920x1080": "https://cdn.civil.services/us-states/backgrounds/1920x1080/landscape/new-york.jpg"
+    },
+    "map": {
+      "large": "https://cdn.civil.services/us-states/maps/new-york-large.png",
+      "small": "https://cdn.civil.services/us-states/maps/new-york-small.png"
+    },
+    "nickname": "Empire State",
+    "population": 19651127,
+    "population_rank": 3,
+    "skyline": {
+      "size_640x360": "https://cdn.civil.services/us-states/backgrounds/640x360/skyline/new-york.jpg",
+      "size_960x540": "https://cdn.civil.services/us-states/backgrounds/960x540/skyline/new-york.jpg",
+      "size_1280x720": "https://cdn.civil.services/us-states/backgrounds/1280x720/skyline/new-york.jpg",
+      "size_1920x1080": "https://cdn.civil.services/us-states/backgrounds/1920x1080/skyline/new-york.jpg"
+    },
+    "state_code": "NY",
+    "state_code_slug": "ny",
+    "state_flag": {
+      "large": "https://cdn.civil.services/us-states/flags/new-york-large.png",
+      "small": "https://cdn.civil.services/us-states/flags/new-york-small.png"
+    },
+    "state_name": "New York",
+    "state_name_slug": "new-york",
+    "state_seal": {
+      "large": "https://cdn.civil.services/us-states/seals/new-york-large.png",
+      "small": "https://cdn.civil.services/us-states/seals/new-york-small.png"
+    },
+    "twitter_handle": "nygov",
+    "twitter_url": "https://twitter.com/nygov",
+    "website": "http://www.ny.gov"
+  },
+  "attribution": {
+    "text": "Data Provided by Civil Services",
+    "website": "https://civil.services",
+    "link": "<a href=\"https://civil.services\">Data Provided by Civil Services</a>",
+    "license": "https://raw.githubusercontent.com/CivilServiceUSA/api/master/LICENSE",
+    "report_bug": "https://github.com/CivilServiceUSA/api/issues/new",
+    "logo": "https://cdn.civil.services/common/logo.png",
+    "icon": "https://cdn.civil.services/common/icon.png"
+  }
+}

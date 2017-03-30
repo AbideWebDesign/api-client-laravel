@@ -18,8 +18,22 @@
         "laravel/framework": "5.4.*",
         "illuminate/support": "~5"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^5.1",
+        "mockery/mockery": "^0.9.4",
+        "satooshi/php-coveralls": "^1.0",
+        "laravel/laravel": "5.4.*"
+    },
     "autoload": {
         "psr-4": { "CivilServices\\Api\\": "src" }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CivilServices\\Api\\Test\\": "tests"
+        },
+        "classmap": [
+            "tests/TestCase.php"
+        ]
     },
     "minimum-stability ": "dev",
     "prefer-stable": true
