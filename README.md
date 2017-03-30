@@ -137,7 +137,7 @@ use CivilServices;
 
 // Get Government Data for Specific GPS Location
 $geolocation = CivilServices::searchGovernment([
-    'latitude' => 27.782805
+    'latitude' => 27.782805,
     'longitude' => -82.63314
 ]);
 ```
@@ -161,7 +161,7 @@ use CivilServices;
 
 // Get Legislators for Specific GPS Location
 $legislators = CivilServices::searchLegislators([
-    'latitude' => 27.782805
+    'latitude' => 27.782805,
     'longitude' => -82.63314
 ]);
 ```
