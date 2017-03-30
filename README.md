@@ -57,9 +57,8 @@ Add the alias in `app/config/app.php`
 
 ```php
 'aliases' => [
-    ...
+    // ...
     'CivilServices' => CivilServices\Api\Facades\CivilServices::class,
-    ...
 ];
 ```
 
