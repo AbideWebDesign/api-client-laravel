@@ -179,7 +179,7 @@ class Client
      * use CivilServices;
      *
      * $geolocation = CivilServices::searchGovernment([
-     *     'latitude' => 27.782805
+     *     'latitude' => 27.782805,
      *     'longitude' => -82.63314
      * ]);
      * </code>
@@ -225,7 +225,7 @@ class Client
      * use CivilServices;
      *
      * $legislators = CivilServices::searchLegislators([
-     *     'latitude' => 27.782805
+     *     'latitude' => 27.782805,
      *     'longitude' => -82.63314
      * ]);
      * </code>
